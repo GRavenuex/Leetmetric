@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LeetMetric Dashboard</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <div class="app">
+
+    <header class="header">
+      <div>
+        <h1>LeetMetric</h1>
+        <p>Analyze your LeetCode profile professionally</p>
+      </div>
+
+      <button id="theme-btn" class="theme-btn">🌙 Dark</button>
+    </header>
+
+    <section class="search-section">
+      <div class="search-box">
+        <input type="text" id="user-input" placeholder="Enter LeetCode username" />
+        <button id="search-btn">Search</button>
+      </div>
+
+      <p id="error-message"></p>
+    </section>
+
+    <section class="history-section">
+      <h3>Recent Searches</h3>
+      <div id="history-list"></div>
+    </section>
+
+    <main id="dashboard" class="dashboard hidden">
+
+      <section class="profile-card">
+        <div class="avatar">
+          <span id="avatar-letter">U</span>
+        </div>
+
+        <div>
+          <h2 id="profile-name">Username</h2>
+          <p id="profile-rank">Rank: --</p>
+        </div>
+      </section>
+
+      <section class="stats-grid">
+        <div class="stat-card">
+          <h3>Total Solved</h3>
+          <p id="total-solved">0</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>Acceptance Rate</h3>
+          <p id="acceptance-rate">0%</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>Contribution</h3>
+          <p id="contribution">0</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>Reputation</h3>
+          <p id="reputation">0</p>
+        </div>
+      </section>
+
+      <section class="progress-section">
+        <div class="progress-card">
+          <div class="circle easy-progress">
+            <span id="easy-label">0/0</span>
+          </div>
+          <h3>Easy</h3>
+        </div>
+
+        <div class="progress-card">
+          <div class="circle medium-progress">
+            <span id="medium-label">0/0</span>
+          </div>
+          <h3>Medium</h3>
+        </div>
+
+        <div class="progress-card">
+          <div class="circle hard-progress">
+            <span id="hard-label">0/0</span>
+          </div>
+          <h3>Hard</h3>
+        </div>
+      </section>
+
+      <section class="chart-section">
+        <h2>Difficulty-wise Graph</h2>
+        <canvas id="difficultyChart"></canvas>
+      </section>
+
+      <section class="submission-section">
+        <h2>Recent Submissions</h2>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Problem</th>
+                <th>Language</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="submission-table">
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="compare-section">
+        <h2>Compare Two Users</h2>
+
+        <div class="compare-inputs">
+          <input type="text" id="user1" placeholder="First username" />
+          <input type="text" id="user2" placeholder="Second username" />
+          <button id="compare-btn">Compare</button>
+        </div>
+
+        <div id="compare-result"></div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

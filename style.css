@@ -1,0 +1,364 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+:root {
+  --bg-color: #f4f7fb;
+  --card-color: #ffffff;
+  --text-color: #1f2937;
+  --muted-text: #6b7280;
+  --primary: #6366f1;
+  --primary-dark: #4f46e5;
+  --border-color: #e5e7eb;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+}
+
+body.dark {
+  --bg-color: #0f172a;
+  --card-color: #1e293b;
+  --text-color: #f8fafc;
+  --muted-text: #cbd5e1;
+  --border-color: #334155;
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+}
+
+.app {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 30px 0;
+}
+
+.header {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  padding: 30px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 15px 30px rgba(99, 102, 241, 0.3);
+}
+
+.header h1 {
+  font-size: 38px;
+}
+
+.header p {
+  margin-top: 8px;
+  opacity: 0.9;
+}
+
+.theme-btn {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 12px;
+  background: white;
+  color: #4f46e5;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.search-section {
+  margin-top: 30px;
+  background: var(--card-color);
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.search-box {
+  display: flex;
+  gap: 15px;
+}
+
+.search-box input,
+.compare-inputs input {
+  flex: 1;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  outline: none;
+  background: transparent;
+  color: var(--text-color);
+  font-size: 16px;
+}
+
+.search-box button,
+.compare-inputs button {
+  padding: 14px 25px;
+  border: none;
+  border-radius: 12px;
+  background: var(--primary);
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.search-box button:hover,
+.compare-inputs button:hover {
+  background: var(--primary-dark);
+}
+
+#error-message {
+  color: var(--danger);
+  margin-top: 12px;
+  font-weight: 500;
+}
+
+.history-section {
+  margin-top: 25px;
+  background: var(--card-color);
+  padding: 20px;
+  border-radius: 18px;
+}
+
+.history-section h3 {
+  margin-bottom: 12px;
+}
+
+#history-list {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.history-item {
+  padding: 8px 14px;
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+.dashboard {
+  margin-top: 30px;
+}
+
+.hidden {
+  display: none;
+}
+
+.profile-card {
+  background: var(--card-color);
+  padding: 25px;
+  border-radius: 22px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.avatar {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1, #ec4899);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: white;
+  font-weight: bold;
+}
+
+.profile-card h2 {
+  font-size: 28px;
+}
+
+.profile-card p {
+  color: var(--muted-text);
+}
+
+.stats-grid {
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.stat-card {
+  background: var(--card-color);
+  padding: 22px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+}
+
+.stat-card h3 {
+  color: var(--muted-text);
+  font-size: 15px;
+}
+
+.stat-card p {
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.progress-section {
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.progress-card {
+  background: var(--card-color);
+  padding: 25px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+}
+
+.circle {
+  width: 140px;
+  height: 140px;
+  margin: auto;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  --progress-degree: 0%;
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.easy-progress {
+  background: conic-gradient(var(--success) var(--progress-degree), var(--border-color) 0%);
+}
+
+.medium-progress {
+  background: conic-gradient(var(--warning) var(--progress-degree), var(--border-color) 0%);
+}
+
+.hard-progress {
+  background: conic-gradient(var(--danger) var(--progress-degree), var(--border-color) 0%);
+}
+
+.circle span {
+  width: 105px;
+  height: 105px;
+  background: var(--card-color);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress-card h3 {
+  margin-top: 15px;
+}
+
+.chart-section,
+.submission-section,
+.compare-section {
+  margin-top: 25px;
+  background: var(--card-color);
+  padding: 25px;
+  border-radius: 22px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+}
+
+.chart-section h2,
+.submission-section h2,
+.compare-section h2 {
+  margin-bottom: 20px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+th {
+  color: var(--muted-text);
+}
+
+.compare-inputs {
+  display: flex;
+  gap: 15px;
+}
+
+#compare-result {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.compare-card {
+  padding: 20px;
+  border-radius: 18px;
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+}
+
+.compare-card h3 {
+  margin-bottom: 10px;
+}
+
+.winner {
+  border: 2px solid var(--success);
+}
+
+@media (max-width: 900px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .progress-section {
+    grid-template-columns: 1fr;
+  }
+
+  .compare-inputs {
+    flex-direction: column;
+  }
+
+  #compare-result {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .search-box {
+    flex-direction: column;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .header h1 {
+    font-size: 30px;
+  }
+}
